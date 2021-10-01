@@ -1,6 +1,5 @@
 package employsia.alfred.healthcarereminder.controller;
 
-import employsia.alfred.healthcarereminder.validator.RequestValidator;
 import org.springframework.web.bind.annotation.*;
 
 
