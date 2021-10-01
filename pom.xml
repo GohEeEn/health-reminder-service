@@ -15,9 +15,11 @@
 	<description>
 		A Spring Boot project that reminds workers to work on healthy practice while WFH
 	</description>
+
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -33,24 +35,39 @@
 		<!-- Slack SDK for Java
 		Reference : https://slack.dev/java-slack-sdk/guides/getting-started-with-bolt#maven
 		-->
-		<dependency>
-			<groupId>com.slack.api</groupId>
-			<artifactId>bolt</artifactId>
-			<version>1.12.1</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.slack.api</groupId>-->
+<!--			<artifactId>bolt</artifactId>-->
+<!--			<version>1.12.1</version>-->
+<!--		</dependency>-->
 
-		<dependency>
-			<groupId>com.slack.api</groupId>
-			<artifactId>bolt-servlet</artifactId>
-			<version>1.12.1</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.slack.api</groupId>-->
+<!--			<artifactId>bolt-servlet</artifactId>-->
+<!--			<version>1.12.1</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.10</version>
+				<executions>
+					<execution>
+						<id>tag-latest</id>
+						<goals>
+							<goal>build</goal>
+							<goal>tag</goal>
+							<goal>push</goal>
+						</goals>
+						<configuration>
+							<repository>${project.artifactId}</repository>
+							<tag>latest</tag>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

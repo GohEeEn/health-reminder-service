@@ -11,12 +11,23 @@ This module is meant to be a reminder service that is linked to Alfred, the slac
 | 1    | Remind the worker to drink some water after certain period | -                | TODO     |
 | 2    | Remind the worker to stretch after certain period          | -                | TODO     |
 
-## How to run this service
+## HOW TO (with Maven)
 
-## Tools & Libraries
+### Run the application
+
+1. Run command `mvn spring-boot:run` to execute this service
+2. Go to `localhost:<server.port>` (Define in `application.properties` file, port `8080` by default)
+
+### Build the Docker Images
+
+1. Run commands `mvn package && mvn dockerfile:build` to create the docker image
+2. Run command `docker images` to check that the image was built
+
+## Tools & Libraries Used
 
 - IntelliJ IDEA
 - Maven
+- Docker
 - Postman
 - [JSON Simple Library](https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1.1)
 
