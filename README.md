@@ -6,10 +6,11 @@ A Spinrg Boot distributed service that reminds users to practice healthy activit
 
 This module is meant to be a reminder service that is linked to Alfred, the slack bot to notify the worker to maintain a healthy practice while WFH. Here is the full design stages to provide the service :
 
-| Step | TODO                                                       | Purpose + HOW TO | Progress |
-| ---- | ---------------------------------------------------------- | ---------------- | -------- |
-| 1    | Remind the worker to drink some water after certain period | -                | TODO     |
-| 2    | Remind the worker to stretch after certain period          | -                | TODO     |
+| Step | TODO                                                       | Purpose + HOW TO           | Progress |
+| ---- | ---------------------------------------------------------- | -------------------------- | -------- |
+| 0    | Debugging message for users                                | GET request to `/greeting` | TODO     |
+| 1    | Remind the worker to drink some water after certain period | POST request to `/water`   | TODO     |
+| 2    | Remind the worker to stretch after certain period          | POST request to `/posture` | TODO     |
 
 ## HOW TO (with Maven)
 
@@ -18,10 +19,12 @@ This module is meant to be a reminder service that is linked to Alfred, the slac
 1. Run command `mvn spring-boot:run` to execute this service
 2. Go to `localhost:<server.port>` (Define in `application.properties` file, port `8080` by default)
 
+<!-- 
 ### Build the Docker Images
 
 1. Run commands `mvn package && mvn dockerfile:build` to create the docker image
-2. Run command `docker images` to check that the image was built
+2. Run command `docker images` to check that the image was built 
+-->
 
 ## Tools & Libraries Used
 
