@@ -1,16 +1,17 @@
-# Health Reminder Service
+# Health Reminder Service API
 
-A Spinrg Boot distributed service that reminds users to practice healthy activities while working from home (WFH)
+A Spring Boot REST API service that reminds users to practice healthy activities while working from home (WFH)
 
 ## About this module
 
 This module is meant to be a reminder service that is linked to Alfred, the slack bot to notify the worker to maintain a healthy practice while WFH. Here is the full design stages to provide the service :
 
-| Step | TODO                                                       | Purpose + HOW TO           | Progress |
-| ---- | ---------------------------------------------------------- | -------------------------- | -------- |
-| 0    | Debugging message for users                                | GET request to `/greeting` | TODO     |
-| 1    | Remind the worker to drink some water after certain period | POST request to `/water`   | TODO     |
-| 2    | Remind the worker to stretch after certain period          | POST request to `/posture` | TODO     |
+| Step | TODO                                                                    | Purpose + HOW TO            | Progress |
+| ---- | ----------------------------------------------------------------------- | --------------------------- | -------- |
+| 0    | Debugging message for users                                             | GET request to `/greeting`  | TODO     |
+| 1    | Remind the worker to drink some water after certain period              | POST request to `/water`    | DONE     |
+| 2    | Remind the worker to stretch after certain period                       | POST request to `/posture`  | DONE     |
+| 3    | List all commands available & description of what this service is doing | GET/POST request to `/help` | DONE     |
 
 ## HOW TO (with Maven)
 
