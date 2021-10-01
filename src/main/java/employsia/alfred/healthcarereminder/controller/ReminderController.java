@@ -3,15 +3,11 @@ package employsia.alfred.healthcarereminder.controller;
 import employsia.alfred.healthcarereminder.validator.RequestValidator;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.HttpMethod.GET;
-
 
 @RestController
 public class ReminderController {
 
     public static final ReplyRandomizer replier = new ReplyRandomizer();
-    public static final RequestValidator validator = new RequestValidator();
-
 
     /**
      * Debugging function
