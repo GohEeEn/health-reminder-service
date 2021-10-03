@@ -1,5 +1,7 @@
 package employsia.alfred.healthcarereminder.controller;
 
+import employsia.alfred.healthcarereminder.model.BrokerRequest;
+import employsia.alfred.healthcarereminder.model.ServiceResponse;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -18,24 +20,26 @@ public class ReminderController {
     }
 
     @PostMapping("/posture")
-    public @ResponseBody String getPostureReminder() {
-        return replier.getPostureMessage();
+    public @ResponseBody ServiceResponse getPostureReminder(@RequestBody BrokerRequest request) {
+        return new ServiceResponse(replier.getPostureMessage(request.getUsername()));
     }
 
     @PostMapping("/water")
-    public @ResponseBody String getWaterReminder() {
-        return replier.getWaterMessage();
+    public @ResponseBody ServiceResponse getWaterReminder(@RequestBody BrokerRequest request) {
+        return new ServiceResponse(replier.getWaterMessage(request.getUsername()));
     }
 
     @RequestMapping("/help")
-    public @ResponseBody String getHelp() {
-        return "Health Care Reminder is a distributed system service that reminds users to maintain" +
+    public @ResponseBody ServiceResponse getHelp() {
+        return new ServiceResponse(
+                "Health Care Reminder is a distributed system service that reminds users to maintain" +
                 " a healthy life style while WFH (Working From Home)\n" +
                 "--------------------------------------------------------------------------------\n" +
                 "Enter a command for Health Care Reminder service :\n" +
                 "help - Get this helping list\n" +
                 "water - Get reminder for drinking water after awhile\n" +
-                "posture - Get reminder for stretching after awhile\n";
+                "posture - Get reminder for stretching after awhile\n"
+        );
     }
 
     /**
@@ -43,12 +47,12 @@ public class ReminderController {
      * @return Static message to announce it is alive !
      */
     @GetMapping("/alive")
-    public @ResponseBody String isAlive() {
-        return "HCR service is alive !";
+    public @ResponseBody ServiceResponse isAlive() {
+        return new ServiceResponse("HCR service is alive !");
     }
 
     @PostMapping("/error")
-    public @ResponseBody String isError() {
-        return "Wrong command is given ! Please try again or use help command to get the full list of available commands!";
+    public @ResponseBody ServiceResponse isError() {
+        return new ServiceResponse("Wrong payload given ! Please try again or use help command to get the full list of available commands!");
     }
 }
